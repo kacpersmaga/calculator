@@ -46,6 +46,8 @@ document.querySelectorAll(".buttons button").forEach(button => {
     button.addEventListener('click', () => handleButtonClick(button))
 });
 
+document.addEventListener('keydown', handleKeyPress);
+
 function updateInputDisplay(input) {
     userInputElement.textContent = input;
 }
@@ -186,5 +188,22 @@ function handleDecimal() {
             num2 += '.';
             updateResultDisplay(num2);
         }
+    }
+}
+
+function handleKeyPress(event) {
+    const key = event.key;
+    if (!isNaN(key)) {
+        handleDigit(key);
+    } else if (['+', '-', '*', '/', '%'].includes(key)) {
+        handleOperator(key);
+    } else if (key === 'Enter') {
+        handleEquals();
+    } else if (key === 'Escape') {
+        clearAll();
+    } else if (key === 'Backspace') {
+        clearInputCharacter();
+    } else if (key === '.') {
+        handleDecimal();
     }
 }
