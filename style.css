@@ -68,7 +68,6 @@ button {
   display: block;
   color: #636e72;
   font-size: 1.2em;
-  white-space: nowrap;
 }
 .result {
   display: block;
@@ -97,4 +96,19 @@ button.operator {
 
 button.operator:hover {
   background-color: #495057;
+}
+
+@keyframes buttonClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+button:active {
+  animation: buttonClick 0.1s;
 }
