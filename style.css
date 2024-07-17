@@ -68,6 +68,7 @@ button {
   display: block;
   color: #636e72;
   font-size: 1.2em;
+  white-space: nowrap;
 }
 .result {
   display: block;
